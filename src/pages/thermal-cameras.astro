@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Thermal Cameras">
+    <div class="header-banner">
+        <img 
+            src="/src/assets/Wireless/heroimg0.png" 
+            alt="Products Banner - Security and Surveillance Solutions" 
+            class="w-full mt-10"
+        />
+      
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">Thermal Cameras</h1>
+        
+        <div class="mb-8">
+            <div class="flex gap-4">
+                <button class="px-6 py-2 bg-white">Overview</button>
+                <button class="px-6 py-2 bg-gray-200">Solution</button>
+            </div>
+        </div>
+
+        <div class="overview-content mb-12">
+            <p class="text-gray-700">
+                Thermal cameras, which do not require a light source, are excellent for providing enhanced coverage in diverse environments, such as those with harsh conditions or extreme darkness. In addition, thermal cameras have long range detection and temperature measurement capabilities, allowing them to be used in conjunction with visible light cameras to achieve all-weather monitoring and comprehensive surveillance. Dahua's thermal cameras covers both thermal and visual cameras to meet different user demands. Thermal cameras are widely used in applications such as perimeter protection, protection of key components (electrical facilities, gas pumps, etc.) and over-heating detection in critical infrastructure, forest fire prevention, and other scenarios.
+            </p>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-6">Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Product Cards -->
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Eureka Series</h3>
+                <img src="/src/assets/thermal/eureka-series.png" alt="Eureka Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/eureka-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Wizmind Series</h3>
+                <img src="/src/assets/thermal/wizmind-series.png" alt="Wizmind Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/wizmind-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Explosion-proof Series</h3>
+                <img src="/src/assets/thermal/explosion-proof-series.png" alt="Explosion-proof Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/explosion-proof-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Anti-Corrosion Series</h3>
+                <img src="/src/assets/thermal/anti-corrosion-series.png" alt="Anti-Corrosion Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/anti-corrosion-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Lite Series</h3>
+                <img src="/src/assets/thermal/lite-series.png" alt="Lite Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/lite-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Pro Series</h3>
+                <img src="/src/assets/thermal/pro-series.png" alt="Pro Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/pro-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Ultra Series</h3>
+                <img src="/src/assets/thermal/ultra-series.png" alt="Ultra Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/ultra-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Thermography Series</h3>
+                <img src="/src/assets/thermal/thermography-series.png" alt="Thermography Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/thermography-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded">
+                <h3 class="text-xl font-semibold">Outdoor Series</h3>
+                <img src="/src/assets/thermal/outdoor-series.png" alt="Outdoor Series Camera" class="my-4 w-full h-48 object-contain">
+                <a href="/thermal-cameras/outdoor-series">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .header-banner {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .header-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+    }
+</style>

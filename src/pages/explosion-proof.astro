@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Explosion-Proof & Anti-Corrosion">
+    <main class="relative">
+        <!-- Hero Section with Parallax -->
+        <div class="relative h-[80vh] overflow-hidden">
+            <div class="absolute inset-0">
+                <img 
+                    src="/src/assets/explosion-proof/heroimg.jpg" 
+                    alt="Explosion-Proof & Anti-Corrosion Solutions" 
+                    class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+            </div>
+            <div class="absolute inset-0 flex items-center">
+                <div class="text-white max-w-4xl px-8">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Explosion-Proof & Anti-Corrosion Solutions
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200">
+                        Advanced Protection for Hazardous Environments
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview Section with Modern Design -->
+        <section class="py-20 bg-gradient-to-b from-gray-900 to-blue-900">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-8 text-white">Overview</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Extreme environment demands higher requirements on the monitoring camera. General equipment suffers from short lifecycle, high failure rate and frequent replacement. The Dahua all-environment series offers better surveillance experience in hazardous environment...
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section with Cards -->
+        <section class="py-20 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    <span class="bg-gradient-to-r from-blue-600 to-blue-800 text-transparent bg-clip-text">
+                        Our Premium Solutions
+                    </span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <!-- Anti-Corrosion Card -->
+                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-80">
+                            <img 
+                                src="/src/assets/explosion-proof/img1.png" 
+                                alt="Anti-corrosion camera" 
+                                class="w-full h-full object-cover"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 p-8">
+                                <h3 class="text-2xl font-bold text-white mb-2">Anti-Corrosion Cameras</h3>
+                                <p class="text-gray-200">316L stainless steel construction for maximum durability</p>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <p class="text-gray-600 mb-6">
+                                Advanced protection against harsh environmental conditions with premium materials and innovative design.
+                            </p>
+                            <a href="/explosion-proof/anti-corrosion " class="inline-flex items-center justify-center w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                Discover More
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Explosion-Proof Card -->
+                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                        <div class="relative h-80">
+                            <img 
+                                src="/src/assets/explosion-proof/img2.png" 
+                                alt="Explosion-proof camera" 
+                                class="w-full h-full object-cover"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                            <div class="absolute bottom-0 p-8">
+                                <h3 class="text-2xl font-bold text-white mb-2">Explosion-Proof Cameras</h3>
+                                <p class="text-gray-200">ATEX and IECEx certified for hazardous areas</p>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <p class="text-gray-600 mb-6">
+                                Maximum safety solutions with certified protection for potentially explosive environments.
+                            </p>
+                            <a href="/explosion-proof/explosion-proof-camera" class="inline-flex items-center justify-center w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                                Discover More
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

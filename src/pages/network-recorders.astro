@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Network Recorders - Security Camera Systems">
+    <main class="container mx-auto px-4 py-8 mt-4">
+        <h1 class="text-4xl font-bold mb-8">Network Recorders</h1>
+
+        <!-- Header Image -->
+        <div class="mb-12">
+            <img 
+                src="/headerimg.png" 
+                alt="Network Recorders Header" 
+                class="w-full h-[400px] object-cover rounded-lg shadow-sm"
+            >
+        </div>
+
+        <!-- Overview Section -->
+        <div class="mb-12">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Dahua Ultra, Pro, and Lite Series network recorders are tailored to fit different applications. Ultra Series recorders offer the best performance and highest quality. Pro Series devices are perfect for mid-large size businesses and projects which require a balance between performance and budget. Lite Series recorders are designed for optimum cost performance with strict Dahua quality standards. Dahua network recorders are equipped with various video channel capacities and physical sizes to cater to various use cases. Up to 256CH/unit with 4U size is suitable for applications with high recording requirements but without additional IP storage to on save costs, such as in schools, casino, building complexes, etc. 4CH/unit small box recorders are typically used in applications at home or small businesses like retail shops.
+                </p>
+            </div>
+        </div>
+
+        <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+            <div class="container mx-auto px-4">
+              <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Product Range</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+              </div>
+          
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "WizMind Series",
+                    image: "/images/network-recorders/wizmind.png",
+                    description: "Advanced AI-powered network video recorders",
+                    link: "/network-recorders/wizmind"
+                  },
+                  {
+                    title: "WizSense Series",
+                    image: "/images/network-recorders/wizsense.png",
+                    description: "Intelligent surveillance recording solution",
+                    link: "/network-recorders/wizsense"
+                  },
+                  {
+                    title: "Ultra Series",
+                    image: "/images/network-recorders/ultra.png",
+                    description: "High-performance recording capabilities",
+                    link: "/network-recorders/ultra"
+                  },
+                  {
+                    title: "Pro Series",
+                    image: "/images/network-recorders/pro.png",
+                    description: "Professional-grade surveillance recording",
+                    link: "/network-recorders/pro"
+                  },
+                  {
+                    title: "Lite Series",
+                    image: "/images/network-recorders/lite.png",
+                    description: "Cost-effective recording solution",
+                    link: "/network-recorders/lite"
+                  },
+                  {
+                    title: "SSD NVR",
+                    image: "/images/network-recorders/ssd-nvr.png",
+                    description: "High-speed solid state recording",
+                    link: "/network-recorders/ssd-nvr"
+                  }
+                ].map(product => (
+                  <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden">
+                      <img 
+                        src={product.image} 
+                        alt={product.title} 
+                        class="w-full h-56 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <div class="p-6">
+                      <h3 class="text-xl font-bold text-gray-900 mb-2">{product.title}</h3>
+                      <p class="text-gray-600 mb-4">{product.description}</p>
+                      <a 
+                        href={product.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+                      >
+                        Learn More
+                        <svg 
+                          class="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="2" 
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+    </main>
+</Layout>
+
+<style>
+    .container {
+        max-width: 1200px;
+    }
+</style>

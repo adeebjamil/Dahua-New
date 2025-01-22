@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="HDCVI Cameras | Dahua"
+  heroimg="/assets/Wireless/heroimg1.png"
+>
+  <main>
+    <div class="hero-section">
+      <h1>PRODUCTS</h1>
+      <p class="hero-subtitle">Innovative Technology | Reliable Quality | End-to-End Service</p>
+    </div>
+
+    <div class="tabs">
+      <a href="#overview" class="tab-link active">Overview</a>
+      <a href="#hdcvi-technology" class="tab-link">HDCVI Technology</a>
+    </div>
+
+    <section id="overview" class="overview-section">
+      <p>
+        As the inventor of HDCVI (High Definition Composite Video Interface) technology, Dahua continuously invests in the technology to
+        rejuvenate existing coaxial-based systems since its launch in 2012 with its own patents. As the first to bring 4K resolution over coax,
+        the first to introduce IoT into analog monitoring, and with versatile offerings such as multi-sensor and fisheye cameras, Dahua has
+        formulated its HDCVI camera selection as the perfect choice to strengthen your existing coaxial system. Dahua HDCVI cameras are
+        separated into the Pro, Lite and Cooper Series, which range from high performance with project oriented features to a
+        cost/performance balance. Users can select cameras based on their needs. HDCVI cameras are used in applications where existing
+        analog infrastructure is available and users have a need for the latest technologies, including 4M/4K resolution, IoT over coax, Power
+        over Coax (PoC), and more.
+      </p>
+    </section>
+
+    <section id="hdcvi-technology" class="technology-section">
+      <div class="content-wrapper">
+        <div class="text-content">
+          <h2>HDCVI Technology</h2>
+          <p>
+            HDCVI technology enables high-definition video transmission over long-distance coaxial cable. 
+            This innovative solution allows users to upgrade their analog systems to HD/4K resolution while 
+            utilizing their existing coaxial infrastructure, providing a cost-effective migration path to 
+            better video quality.
+          </p>
+        </div>
+        <div class="video-container">
+          <iframe 
+            width="100%" 
+            height="315" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="HDCVI Technology Overview" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-grid">
+      <h2>Products</h2>
+      <div class="grid">
+        <div class="product-card">
+          <h3>Pro Series</h3>
+          <img src="/images/pro-series.jpg" alt="Pro Series Camera" />
+          <a href="/hdcvi-cameras/pro-series" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Lite Series</h3>
+          <img src="/images/lite-series.jpg" alt="Lite Series Camera" />
+          <a href="/hdcvi-cameras/lite-series" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Cooper Series</h3>
+          <img src="/images/cooper-series.jpg" alt="Cooper Series Camera" />
+          <a href="/hdcvi-cameras/cooper-series" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Panorama Series</h3>
+          <img src="/images/panorama-series.jpg" alt="Panorama Series Camera" />
+          <a href="/hdcvi-cameras/panorama-series" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>PoC Series</h3>
+          <img src="/images/poc-series.jpg" alt="PoC Series Camera" />
+          <a href="/hdcvi-cameras/poc-series" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Active Deterrence Series</h3>
+          <img src="/images/active-deterrence.jpg" alt="Active Deterrence Camera" />
+          <a href="/hdcvi-cameras/active-deterrence" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Micro-size Series</h3>
+          <img src="/images/micro-size.jpg" alt="Micro-size Camera" />
+          <a href="/hdcvi-cameras/micro-size" class="btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
+          <h3>HDCVI Accessories</h3>
+          <img src="/images/accessories.jpg" alt="HDCVI Accessories" />
+          <a href="/hdcvi-cameras/accessories" class="btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/Wireless/heroimg0.png');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-section h1 {
+      color: white;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .hero-subtitle {
+      color: white;
+      font-size: 1.2rem;
+      margin: 1rem 0 0 0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      margin-left: 12rem;
+    }
+
+    .tab-link {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #666;
+    }
+
+    .tab-link.active {
+      background-color: #eee;
+      border-radius: 4px;
+    }
+
+    .overview-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px; /* Fixed height for consistency */
+      object-fit: cover; /* Maintains aspect ratio while filling container */
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 1rem 0;
+      flex-grow: 1; /* Allows title to take needed space */
+    }
+
+    .btn {
+      margin-top: auto; /* Pushes button to bottom of card */
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0052a3;
+    }
+
+    .technology-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

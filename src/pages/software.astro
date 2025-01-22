@@ -1,0 +1,147 @@
+---
+// Import necessary components and assets
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import your carousel images
+const carouselImages = [
+  '/images/dss-pro-v8.5.jpg',
+  '/images/carousel-2.jpg',
+  '/images/carousel-3.jpg',
+];
+
+// Product data
+const products = [
+  {
+    title: 'DSS',
+    subtitle: 'Dahua Security System',
+    description: 'Whether you have a small shop with a few cameras, or a chain store with +20,000 shops, Whether you want all-in-one platform or...',
+    image: '/images/dss-product.jpg',
+  },
+  {
+    title: 'DMSS',
+    subtitle: 'Dahua mobile surveillance app',
+    description: 'DMSS is aimed at serving end-users and installers with remote surveillance management service. It can realize remote device management, remote...',
+    image: '/images/dmss-product.jpg',
+  },
+  {
+    title: 'DoLynk Care',
+    subtitle: 'Dahua cloud management platform',
+    description: 'The brand new DoLynk Care Cloud Platform offers a confident, cloud-based service system that allows installers to manage on-site devices...',
+    image: '/images/dolynk-product.jpg',
+  },
+];
+---
+
+<Layout title="Software Solutions">
+  <!-- Carousel Section -->
+  <div class="carousel-container relative overflow-hidden">
+    <div class="carousel-track flex transition-transform duration-500" id="carouselTrack">
+      {carouselImages.map((image) => (
+        <div class="carousel-slide w-full flex-shrink-0">
+          <img src={image} alt="Carousel slide" class="w-full h-[500px] object-cover" />
+        </div>
+      ))}
+    </div>
+    <div class="carousel-dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+      {carouselImages.map((_, index) => (
+        <button class="w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity"
+                data-index={index}></button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">OUR PRODUCTS</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <div class="product-card relative group overflow-hidden rounded-lg shadow-lg">
+          <img 
+            src={product.image} 
+            alt={product.title} 
+            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" 
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+            <h3 class="text-2xl font-bold">{product.title}</h3>
+            <p class="text-lg font-semibold">{product.subtitle}</p>
+            <p class="mt-2 text-sm opacity-90">{product.description}</p>
+            <span class="absolute right-4 bottom-4 text-2xl transition-opacity duration-500 group-hover:opacity-0">&gt;&gt;</span>
+            <a href="#" class="inline-block bg-[#FF0000] hover:bg-[#E60000] px-8 py-3 rounded-lg text-white font-semibold transition-colors duration-300">
+              Learn More
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="relative h-[400px]">
+    <div class="absolute inset-0">
+      <img src="/src/assets/Wireless/heroimg1.png" alt="Solutions" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+    <div class="relative z-10 h-full flex flex-col items-center justify-center text-white text-center px-4">
+      <h2 class="text-5xl font-bold mb-4">OUR SOLUTIONS</h2>
+      <p class="text-xl mb-8">Innovative Technology | Reliable Quality | End-to-End Service</p>
+      
+      <a href="#" class="inline-block bg-[#FF0000] hover:bg-[#E60000] px-8 py-3 rounded-lg text-white font-semibold transition-colors duration-300">
+        Learn More
+      </a>
+    </div>
+  </section>
+
+  <script>
+    // Carousel functionality
+    const track = document.getElementById('carouselTrack');
+    const slides = track ? track.children : [];
+    const dots = document.querySelectorAll('.carousel-dots button');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      if (track) {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+      dots.forEach((dot, index) => {
+        (dot as HTMLElement).style.opacity = index === currentIndex ? '1' : '0.5';
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }
+
+    // Auto advance carousel
+    setInterval(nextSlide, 5000);
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  .carousel-container {
+    height: 500px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-slide {
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  .product-card:hover .product-content {
+    transform: translateY(0);
+  }
+</style>
