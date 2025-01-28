@@ -115,7 +115,7 @@ import Layout from '../../layouts/Layout.astro';
 </style>
 
 <script>
-  const products: { id: string, name: string, image: string, series: string, subcategory: string }[] = [
+  const products = [
     { 
       id: 'PSDW83242M-A360-D845L-S3',
       name: '32 MP Multi-Sensor 360° Panoramic PTZ Hubble WizMind Network Camera',
@@ -832,40 +832,41 @@ import Layout from '../../layouts/Layout.astro';
   }
 
   function updateSubcategoryVisibility() {
-  const subcategoryContainer = document.querySelector('.subcategory-container');
-  if (subcategoryContainer) {
-    if (currentSeries === 'Panoramic Series' || currentSeries === '8 Series' || currentSeries === '7 Series' || currentSeries === '5 Series' || currentSeries === 'Special Series') {
-      (subcategoryContainer as HTMLElement).style.display = 'grid';
-      
-      // Update subcategory buttons based on selected series
-      const subcategories = currentSeries === 'Panoramic Series' 
-        ? ['Hubble Series', 'Multi-Sensor 180° Series', 'Multi-Directional Series', 'Fisheye Series']
-        : currentSeries === '8 Series'
-        ? ['Dual-Lens Series', 'Corner Series', 'Classroom Series', 'High Temperature Tolerance Series']
-        : currentSeries === '7 Series'
-        ? ['Dual-Sight', '12MP', '8MP', '4MP']
-        : currentSeries === '5 Series'
-        ? ['Full-color', '8MP', '5MP', '4MP', '2MP', '5G']
-        : ['Pinhole Series'];
-      
-      subcategoryContainer.innerHTML = subcategories.map(subcategory => `
-        <button 
-          class="subcategory-btn px-6 py-3 text-sm font-medium text-gray-700 bg-gray-100 rounded-full hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
-          data-subcategory="${subcategory}"
-        >
-          ${subcategory}
-        </button>
-      `).join('');
-      
-      // Reattach event listeners
-      document.querySelectorAll('.subcategory-btn').forEach(btn => {
-        btn.addEventListener('click', showSubcategory);
-      });
-    } else {
-      (subcategoryContainer as HTMLElement).style.display = 'none';
+    const subcategoryContainer = document.querySelector('.subcategory-container');
+    if (subcategoryContainer) {
+      if (currentSeries === 'Panoramic Series' || currentSeries === '8 Series' || currentSeries === '7 Series' || currentSeries === '5 Series' || currentSeries === 'Special Series') {
+        (subcategoryContainer as HTMLElement).style.display = 'grid';
+        
+        // Update subcategory buttons based on selected series
+        const subcategories = currentSeries === 'Panoramic Series' 
+          ? ['Hubble Series', 'Multi-Sensor 180° Series', 'Multi-Directional Series', 'Fisheye Series']
+          : currentSeries === '8 Series'
+          ? ['Dual-Lens Series', 'Corner Series', 'Classroom Series', 'High Temperature Tolerance Series']
+          : currentSeries === '7 Series'
+          ? ['Dual-Sight', '12MP', '8MP', '4MP']
+          : currentSeries === '5 Series'
+          ? ['Full-color', '8MP', '5MP', '4MP', '2MP', '5G']
+          : ['Pinhole Series'];
+        
+        subcategoryContainer.innerHTML = subcategories.map(subcategory => `
+          <button 
+            class="subcategory-btn px-6 py-3 text-sm font-medium text-gray-700 bg-gray-100 rounded-full hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+            data-subcategory="${subcategory}"
+          >
+            ${subcategory}
+          </button>
+        `).join('');
+        
+        // Reattach event listeners
+        document.querySelectorAll('.subcategory-btn').forEach(btn => {
+          btn.addEventListener('click', showSubcategory);
+        });
+      } else {
+        (subcategoryContainer as HTMLElement).style.display = 'none';
+      }
     }
   }
-}
+
   function showSubcategory(event: Event) {
     const target = event.target;
     if (!target) return;
@@ -876,13 +877,15 @@ import Layout from '../../layouts/Layout.astro';
     document.querySelectorAll('.subcategory-btn').forEach(btn => {
       if ((btn as HTMLElement).dataset.subcategory === subcategory) {
         btn.classList.add('bg-blue-600', 'text-white');
+      } else {
+        btn.classList.remove('bg-blue-600', 'text-white');
       }
     });
     
     filterProducts();
   }
 
-    function filterProducts() {
+  function filterProducts() {
     const filteredProducts = products.filter(product => {
       const seriesMatch = product.series === currentSeries;
       const subcategoryMatch = !currentSubcategory || product.subcategory === currentSubcategory;
@@ -892,7 +895,7 @@ import Layout from '../../layouts/Layout.astro';
     updateProductGrid(filteredProducts);
   }
 
-  function updateProductGrid(productList: { id: string, name: string, image: string, series: string, subcategory: string }[]) {
+  function updateProductGrid(productList: { id: string, name: string, image: string }[]) {
     const productGrid = document.querySelector('.product-grid');
     if (productGrid) {
       productGrid.innerHTML = productList.map(product => `
