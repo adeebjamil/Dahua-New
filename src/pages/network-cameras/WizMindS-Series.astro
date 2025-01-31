@@ -109,84 +109,134 @@ import Icon from 'astro-icon';
 
 <script>
   const products = [
-    // Products for 8MP category
-    ...Array.from({ length: 12 }, (_, i) => ({
-      id: `8MP-${i + 1}`,
-      name: `8MP WizMind S Camera ${i + 1}`,
-      image: `/src/assets/WizMindSSeries/8mp${i + 1}.png`,
+    // 8MP Products
+    {
+      id: 'IPC-HDBW5842R-ASE',
+      name: '8MP IR Fixed-focal Vandal-proof Dome WizMind Network Camera',
+      image: '/src/assets/WizSense/img103.png',
       category: '8MP'
-    })),
-    // Products for 5MP category
-    ...Array.from({ length: 12 }, (_, i) => ({
-      id: `5MP-${i + 1}`,
-      name: `5MP WizMind S Camera ${i + 1}`,
-      image: `/src/assets/WizMindSSeries/5mp${i + 1}.png`,
+    },
+    {
+      id: 'IPC-HF5842F-ZE',
+      name: '8MP Box WizMind Network Camera',
+      image: '/src/assets/WizSense/img104.png', 
+      category: '8MP'
+    },
+    {
+      id: 'IPC-HFW5842T-SE',
+      name: '8MP IR Fixed-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img105.png',
+      category: '8MP'
+    },
+    {
+      id: 'IPC-HFW5842T-ASE',
+      name: '8MP IR Fixed-focal Bullet WizMind Network Camera', 
+      image: '/src/assets/WizSense/img106.png',
+      category: '8MP'
+    },
+    {
+      id: 'IPC-HDW5842T-ZE',
+      name: '8MP IR Vari-focal Eyeball WizMind Network Camera',
+      image: '/src/assets/WizSense/img107.png',
+      category: '8MP'
+    },
+
+    // 5MP Products
+    {
+      id: 'IPC-HFW5541EP-ZE',
+      name: '5MP IR Vari-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img108.png',
       category: '5MP'
-    })),
-    // Products for 4MP category
-    ...Array.from({ length: 12 }, (_, i) => ({
-      id: `4MP-${i + 1}`,
-      name: `4MP WizMind S Camera ${i + 1}`,
-      image: `/src/assets/WizMindSSeries/4mp${i + 1}.png`,
+    },
+    {
+      id: 'IPC-HFW5541EP-Z5E',
+      name: '5MP IR Vari-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img109.png',
+      category: '5MP'
+    },
+    {
+      id: 'IPC-HDBW5541E-Z5E',
+      name: '5MP IR Vari-focal Vandal-proof Dome WizMind Network Camera',
+      image: '/src/assets/WizSense/img110.png',
+      category: '5MP'
+    },
+
+    // 4MP Products
+    {
+      id: 'IPC-HFW5442EP-ZE',
+      name: '4MP IR Vari-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img111.png',
       category: '4MP'
-    })),
-    // Products for 2MP category
-    ...Array.from({ length: 12 }, (_, i) => ({
-      id: `2MP-${i + 1}`,
-      name: `2MP WizMind S Camera ${i + 1}`,
-      image: `/src/assets/WizMindSSeries/2mp${i + 1}.png`,
+    },
+    {
+      id: 'IPC-HF5442F-ZE', 
+      name: '4MP Box WizMind Network Camera',
+      image: '/src/assets/WizSense/img112.png',
+      category: '4MP'
+    },
+    {
+      id: 'IPC-HFW5442T-ASE',
+      name: '4MP IR Fixed-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img113.png',
+      category: '4MP'
+    },
+
+    // 2MP Products
+    {
+      id: 'IPC-HFW5241TP-SE',
+      name: '2MP IR Fixed-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img114.png',
       category: '2MP'
-    }))
+    },
+    {
+      id: 'IPC-HFW5241TP-ASE',
+      name: '2MP IR Fixed-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img115.png',
+      category: '2MP'
+    },
+    {
+      id: 'IPC-HFW5241TP-SE',
+      name: '2MP IR Fixed-focal Bullet WizMind Network Camera',
+      image: '/src/assets/WizSense/img116.png',
+      category: '2MP'
+    },
+    {
+      id: 'IPC-HF5241F-ZE',
+      name: '2MP Box WizMind Network Camera',
+      image: '/src/assets/WizSense/img117.png',
+      category: '2MP'
+    }
   ];
 
-  // Declare showCategory on the window object
-  declare global {
-    interface Window {
-      showCategory: (event: Event) => void;
-    }
-  }
+  let currentCategory = '8MP';
 
-  // Function to handle category button click
   function showCategory(event: Event) {
-    const target = event.target as HTMLElement;
-    if (!target) return;
-    const category = target.dataset.category;
+    const target = event.currentTarget as HTMLElement;
+    const category = target.getAttribute('data-category');
+    
+    // Update current category
     if (category) {
       currentCategory = category;
     }
 
-    // Update UI for category buttons
+    // Update button styles
     document.querySelectorAll('.category-btn').forEach(btn => {
       btn.classList.remove('text-yellow-600', 'border-b-2', 'border-yellow-600');
       btn.classList.add('text-gray-600');
     });
     target.classList.add('text-yellow-600', 'border-b-2', 'border-yellow-600');
 
+    // Filter and display products
     filterProducts();
   }
 
-  // Bind showCategory function to the window object
-  window.showCategory = showCategory;
-
-  let currentCategory = '8MP';
-
-  // Function to filter products based on current category
   function filterProducts() {
     const filteredProducts = products.filter(product => product.category === currentCategory);
-    updateProductGrid(filteredProducts);
-  }
-
-  // Function to update the product grid with filtered products
-  function updateProductGrid(productList: { id: string; name: string; image: string; category: string }[]) {
     const productGrid = document.querySelector('.product-grid');
+    
     if (productGrid) {
-      productGrid.innerHTML = productList.map(product => `
-        <div class="flex-shrink-0 w-[300px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative">
-          <!-- CCTV Icon -->
-          <div class="absolute top-2 right-2 flex gap-1.5">
-            <Icon name="cctv" class="w-5 h-5" />
-          </div>
-          
+      productGrid.innerHTML = filteredProducts.map(product => `
+        <div class="flex-shrink-0 w-[300px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
           <div class="p-4">
             <div class="aspect-square bg-gray-50 rounded-lg mb-4 flex items-center justify-center">
               <img 
@@ -200,12 +250,10 @@ import Icon from 'astro-icon';
               <p class="text-gray-600 text-sm line-clamp-3">${product.name}</p>
               <a 
                 href="/products/${product.id}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-sm text-yellow-600 hover:text-yellow-700 mt-2 group"
+                class="inline-flex items-center gap-2 text-sm text-yellow-600 hover:text-yellow-700"
               >
                 View Details
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </a>
@@ -216,14 +264,14 @@ import Icon from 'astro-icon';
     }
   }
 
-  // Add event listener initialization when the document loads
+  // Initialize on page load
   document.addEventListener('DOMContentLoaded', () => {
-    // Add click event listeners to category buttons
+    // Add click listeners to category buttons
     document.querySelectorAll('.category-btn').forEach(btn => {
-      btn.addEventListener('click', (event) => window.showCategory(event));
+      btn.addEventListener('click', showCategory);
     });
 
-    // Initial filter to show default products
+    // Show initial products
     filterProducts();
   });
 </script>

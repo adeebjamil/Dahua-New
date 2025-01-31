@@ -27,15 +27,60 @@ const pageHeaderImage = {
     </div>
   </section>
 
-  <!-- Overview Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-semibold mb-8">Overview</h2>
-      <p class="text-gray-700 leading-relaxed max-w-4xl">
-        Dahua's Video Intercom product lineup eases communications between visitors, home owners, and property management centers. Dahua intercom products come in a versatile lineup of IP, Wi-Fi, 2-wire, and analog-based solutions for houses, small apartments, and large apartments. CCTV and alarm integration offer more intelligence and security. The management system comes in both a PC client and mobile app. This makes it convenient for security guards to manage an entire residential community with the PC client while residents can receive answer the door from anywhere through our intuitive mobile app. Open and standard SIP protocol ease 3rd party integration. The Dahua emergency phone terminal combines CCTV surveillance with information display and management devices to enable convenient emergency handling. Various product types are available to satisfy different installation requirements.
-      </p>
+<!-- Overview Section -->
+<section class="relative py-24 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50"></div>
+  
+  <div class="container mx-auto px-4 relative">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent inline-block">
+        Overview
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
     </div>
-  </section>
+
+    <!-- Content Card -->
+    <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+        <p class="text-lg">
+          Dahua's Video Intercom product lineup eases communications between visitors, home owners, and property management centers. Dahua intercom products come in a versatile lineup of IP, Wi-Fi, 2-wire, and analog-based solutions for houses, small apartments, and large apartments.
+        </p>
+        
+        <p class="text-lg">
+          CCTV and alarm integration offer more intelligence and security. The management system comes in both a PC client and mobile app. This makes it convenient for security guards to manage an entire residential community with the PC client while residents can receive answer the door from anywhere through our intuitive mobile app.
+        </p>
+        
+        <p class="text-lg">
+          Open and standard SIP protocol ease 3rd party integration. The Dahua emergency phone terminal combines CCTV surveillance with information display and management devices to enable convenient emergency handling. Various product types are available to satisfy different installation requirements.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 50%);
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Products Grid -->
   <section class="py-16">
@@ -47,7 +92,6 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">IP Series</h3>
             <img src="/src/assets/video-intercoms/img1.png" alt="IP Series" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/ip-series" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
           </div>
         </div>
 
@@ -56,7 +100,7 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">2-Wire IP</h3>
             <img src="/src/assets/video-intercoms/img2.png" alt="2-Wire IP" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/2-wire-ip" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
+            
           </div>
         </div>
 
@@ -65,7 +109,7 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">2-Wire Hybrid</h3>
             <img src="/src/assets/video-intercoms/img3.png" alt="2-Wire Hybrid" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/2-wire-hybrid" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
+            
           </div>
         </div>
 
@@ -74,7 +118,7 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">4-Wire Series</h3>
             <img src="/src/assets/video-intercoms/img4.png" alt="4-Wire Series" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/4-wire-series" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
+           
           </div>
         </div>
 
@@ -83,7 +127,7 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">Emergency Phone Terminals</h3>
             <img src="/src/assets/video-intercoms/img5.png" alt="Emergency Phone Terminals" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/emergency-terminals" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
+           
           </div>
         </div>
 
@@ -92,7 +136,7 @@ const pageHeaderImage = {
           <div class="p-6">
             <h3 class="text-xl font-semibold mb-4">Accessories</h3>
             <img src="/src/assets/video-intercoms/img6.png" alt="Accessories" class="w-full h-48 object-contain mb-4"/>
-            <a href="/products/accessories" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Learn More</a>
+          
           </div>
         </div>
       </div>

@@ -398,9 +398,11 @@ import Icon from 'astro-icon';
   .video-card {
     cursor: pointer;
   }
+
   .video-card img {
     transition: transform 0.3s;
   }
+
   .video-card:hover img {
     transform: scale(1.05);
   }
@@ -413,7 +415,7 @@ import Icon from 'astro-icon';
 
   .carousel-slides {
     display: flex;
-    width: 300%;  /* 100% for each slide */
+    width: 300%;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
   }
@@ -428,122 +430,99 @@ import Icon from 'astro-icon';
   }
 </style>
 
+
 <script>
   const products = [
-    // Products for 4G Camera category
-    ...Array.from({ length: 5 }, (_, i) => ({
-      id: `4G-${i + 1}`,
-      name: `4G Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/4g${i + 1}.png`,
-      category: '4G Camera',
-      subcategory: ''
-    })),
-    // Products for Indoor Camera subcategories
-    ...Array.from({ length: 6 }, (_, i) => ({
-      id: `Hero-${i + 1}`,
-      name: `Hero Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/hero${i + 1}.png`,
-      subcategory: 'Hero Series',
-      category: 'Indoor Camera'
-    })),
-    ...Array.from({ length: 2 }, (_, i) => ({
-      id: `Cube-${i + 1}`,
-      name: `Cube Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/cube${i + 1}.png`,
-      subcategory: 'Cube Series',
-      category: 'Indoor Camera'
-    })),
-    ...Array.from({ length: 5 }, (_, i) => ({
-      id: `Turret-${i + 1}`,
-      name: `Turret Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/turret${i + 1}.png`,
-      subcategory: 'Turret Series',
-      category: 'Indoor Camera'
-    })),
-    ...Array.from({ length: 2 }, (_, i) => ({
-      id: `Dome-${i + 1}`,
-      name: `Dome Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/dome${i + 1}.png`,
-      subcategory: 'Dome Series',
-      category: 'Indoor Camera'
-    })),
-    // Products for Outdoor Camera subcategories
-    ...Array.from({ length: 8 }, (_, i) => ({
-      id: `Bullet-${i + 1}`,
-      name: `Bullet Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/bullet${i + 1}.png`,
-      subcategory: 'Bullet Series',
-      category: 'Outdoor Camera'
-    })),
-    ...Array.from({ length: 4 }, (_, i) => ({
-      id: `Picoo-${i + 1}`,
-      name: `Picoo Series Camera ${i + 1}`,
-      image: `/src/assets/WirelessSeries/picoo${i + 1}.png`,
-      subcategory: 'Picoo Series',
-      category: 'Outdoor Camera'
-    })),
+    // 4G Camera Products
     {
-      id: 'Floodlight-1',
-      name: 'Floodlight Series Camera 1',
-      image: '/src/assets/WirelessSeries/floodlight1.png',
-      subcategory: 'Floodlight Series',
+      id: 'P3AE-PV-4G-LA',
+      name: '3MP Fixed-focal 4G Pan & Tilt Network Camera',
+      image: '/src/assets/WirelessSeries/4g1.png',
+      category: '4G Camera'
+    },
+    {
+      id: 'DH-IPC-HFW1339DT1-4G-ST-IL',
+      name: '3MP Entry Dual Illumination Fixed-focal 4G Bullet Network Camera',
+      image: '/src/assets/WirelessSeries/4g2.png',
+      category: '4G Camera'
+    },
+    {
+      id: 'DH-IPC-HFW3441DGP-AS-4G',
+      name: '4MP IR Fixed-focal Bullet WizSense 4G Network Camera',
+      image: '/src/assets/WirelessSeries/4g3.png',
+      category: '4G Camera'
+    },
+    {
+      id: 'DH-IPC-HFW1239DTP-4G-IL',
+      name: '2MP Entry Dual Illumination Fixed-focal 4G Bullet Network Camera',
+      image: '/src/assets/WirelessSeries/4g4.png',
+      category: '4G Camera'
+    },
+    {
+      id: 'IPC-HFW3241DF-AS-4G',
+      name: '2MP IR Fixed focal Bullet WizSense 4G Network Camera',
+      image: '/src/assets/WirelessSeries/4g5.png',
+      category: '4G Camera'
+    },
+
+    // Indoor Camera Products
+    {
+      id: 'DH-H5B',
+      name: '5MP Indoor Fixed-focal Wi-Fi Pan & Tilt Network Camera',
+      image: '/src/assets/WirelessSeries/indoor1.png',
+      category: 'Indoor Camera'
+    },
+    {
+      id: 'DH-C5A',
+      name: '5MP Indoor Fixed-focal Wi-Fi Cube Network Camera',
+      image: '/src/assets/WirelessSeries/indoor2.png',
+      category: 'Indoor Camera'
+    },
+    {
+      id: 'T4A-LED',
+      name: '4MP Fixed-focal Wi-Fi Turret Network Camera',
+      image: '/src/assets/WirelessSeries/indoor3.png',
+      category: 'Indoor Camera'
+    },
+    {
+      id: 'IPC-HDBW1430DE-SW',
+      name: '4MP IR Fixed-focal Wi-Fi Dome Network Camera',
+      image: '/src/assets/WirelessSeries/indoor4.png',
+      category: 'Indoor Camera'
+    },
+
+    // Outdoor Camera Products
+    {
+      id: 'F4C-LED',
+      name: '4MP Fixed-focal Wi-Fi Bullet Network Camera',
+      image: '/src/assets/WirelessSeries/outdoor1.png',
+      category: 'Outdoor Camera'
+    },
+    {
+      id: 'DH-P5B-PV',
+      name: '5MP Outdoor Fixed-focal Wi-Fi Pan & Tilt Network Camera',
+      image: '/src/assets/WirelessSeries/outdoor2.png',
+      category: 'Outdoor Camera'
+    },
+    {
+      id: 'IPC-WL46A',
+      name: '4MP Fixed-focal Floodlight Network Camera',
+      image: '/src/assets/WirelessSeries/outdoor3.png',
       category: 'Outdoor Camera'
     }
   ];
 
-  // Function to handle category button click
+  let currentCategory = '4G Camera';
+
   function showCategory(event: Event) {
-    const target = event.target as HTMLElement;
-    if (!target) return;
-    const category = target.dataset.category;
+    const target = event.currentTarget as HTMLElement;
+    const category = target.getAttribute('data-category');
+    
     if (category) {
       currentCategory = category;
-      currentSubcategory = null;
-
-      const subcategoryTabs = document.querySelector('.subcategory-tabs');
-      if (subcategoryTabs) {
-        // Show subcategory tabs for Indoor Camera
-        if (category === 'Indoor Camera') {
-          subcategoryTabs.innerHTML = `
-            <div class="flex flex-wrap space-x-4 border-b border-gray-200">
-              ${['Hero Series', 'Cube Series', 'Turret Series', 'Dome Series'].map((subcategory, index) => `
-                <button
-                  class="subcategory-btn px-6 py-3 text-sm font-medium transition-colors duration-200 ${index === 0 ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-600 hover:text-purple-600'}"
-                  data-subcategory="${subcategory}"
-                  onclick="showSubcategory(event)"
-                >
-                  ${subcategory}
-                </button>
-              `).join('')}
-            </div>
-          `;
-          (subcategoryTabs as HTMLElement).style.display = 'block';
-        }
-        // Show subcategory tabs for Outdoor Camera
-        else if (category === 'Outdoor Camera') {
-          subcategoryTabs.innerHTML = `
-            <div class="flex flex-wrap space-x-4 border-b border-gray-200">
-              ${['Bullet Series', 'Picoo Series', 'Floodlight Series'].map((subcategory, index) => `
-                <button
-                  class="subcategory-btn px-6 py-3 text-sm font-medium transition-colors duration-200 ${index === 0 ? 'text-purple-600 border-b-2 border-purple-600' : 'text-gray-600 hover:text-purple-600'}"
-                  data-subcategory="${subcategory}"
-                  onclick="showSubcategory(event)"
-                >
-                  ${subcategory}
-                </button>
-              `).join('')}
-            </div>
-          `;
-          (subcategoryTabs as HTMLElement).style.display = 'block';
-        }
-        // Hide subcategory tabs for 4G Camera
-        else {
-          (subcategoryTabs as HTMLElement).style.display = 'none';
-        }
-      }
     }
 
-    // Update UI for category buttons
+    // Update UI
     document.querySelectorAll('.category-btn').forEach(btn => {
       btn.classList.remove('text-purple-600', 'border-b-2', 'border-purple-600');
       btn.classList.add('text-gray-600');
@@ -553,163 +532,67 @@ import Icon from 'astro-icon';
     filterProducts();
   }
 
-  // Function to handle subcategory button click
-  function showSubcategory(event: Event) {
-    const target = event.target as HTMLElement;
-    if (!target) return;
-    const subcategory = target.dataset.subcategory;
-    if (subcategory) {
-      currentSubcategory = subcategory;
-    }
-
-    // Update UI for subcategory buttons
-    document.querySelectorAll('.subcategory-btn').forEach(btn => {
-      btn.classList.remove('text-purple-600', 'border-b-2', 'border-purple-600');
-      btn.classList.add('text-gray-600');
-    });
-    target.classList.add('text-purple-600', 'border-b-2', 'border-purple-600');
-
-    filterProducts();
-  }
-
-  // Bind showCategory and showSubcategory functions to the window object
-  window.showCategory = showCategory;
-  window.showSubcategory = showSubcategory;
-
-  let currentCategory = '4G Camera';
-  let currentSubcategory: string | null = null;
-
-  // Function to filter products based on current category and subcategory
   function filterProducts() {
-    let filteredProducts = products.filter(product => product.category === currentCategory);
-    if (currentSubcategory) {
-      filteredProducts = filteredProducts.filter(product => product.subcategory === currentSubcategory);
-    }
-    updateProductGrid(filteredProducts);
-  }
-
-  // Function to update the product grid with filtered products
-  function updateProductGrid(productList: { id: string; name: string; image: string; category: string; subcategory: string }[]) {
-    const productGrid = document.querySelector('.product-grid');
-    if (productGrid) {
-      productGrid.innerHTML = productList.map(product => `
-        <div class="flex-shrink-0 w-[300px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative">
-          <!-- CCTV Icon -->
-          <div class="absolute top-2 right-2 flex gap-1.5">
-            <Icon name="cctv" class="w-5 h-5" />
+  const filteredProducts = products.filter(product => product.category === currentCategory);
+  const productGrid = document.querySelector('.product-grid');
+  
+  if (productGrid) {
+    productGrid.innerHTML = filteredProducts.map(product => `
+      <div class="flex-shrink-0 w-[300px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+        <div class="p-4">
+          <div class="aspect-square bg-gray-50 rounded-lg mb-4 flex items-center justify-center">
+            <img 
+              src="${product.image}" 
+              alt="${product.name}"
+              class="object-contain h-40 w-40 hover:scale-110 transition-transform duration-500"
+            />
           </div>
-          
-          <div class="p-4">
-            <div class="aspect-square bg-gray-50 rounded-lg mb-4 flex items-center justify-center">
-              <img 
-                src="${product.image}" 
-                alt="${product.name}"
-                class="object-contain h-40 w-40 hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div class="space-y-2">
-              <h3 class="text-lg font-bold text-gray-900">${product.id}</h3>
-              <p class="text-gray-600 text-sm line-clamp-3">${product.name}</p>
-              <a 
-                href="/products/${product.id}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-sm text-purple-600 hover:text-purple-700 mt-2 group"
-              >
-                View Details
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
-            </div>
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold text-gray-900">${product.id}</h3>
+            <p class="text-sm text-gray-600">${product.name}</p>
+            <a 
+              href="/products/${product.id}" 
+              class="inline-flex items-center gap-2 mt-4 px-4 py-2 text-sm font-medium text-white bg-purple-600 rounded-md hover:bg-purple-700 transition-colors duration-200"
+            >
+              Learn More
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
           </div>
         </div>
-      `).join('');
-    }
+      </div>
+    `).join('');
   }
+}
 
-  // Add event listener initialization when the document loads
+  // Initialize on page load
   document.addEventListener('DOMContentLoaded', () => {
-    // Add click event listeners to category buttons
     document.querySelectorAll('.category-btn').forEach(btn => {
-      btn.addEventListener('click', (event) => window.showCategory(event));
+      btn.addEventListener('click', showCategory);
     });
-
-    // Add click event listeners to subcategory buttons
-    document.querySelectorAll('.subcategory-btn').forEach(btn => {
-      btn.addEventListener('click', (event) => window.showSubcategory(event));
-    });
-
-    // Initial filter to show default products
     filterProducts();
-
-    initializeCarousel();
   });
+</script>
 
-  function initializeCarousel() {
-    const slidesContainer = document.querySelector('.carousel-slides');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
-    const slideCount = dots.length;
-    let isTransitioning = false;
 
-    function updateCarousel(instant = false) {
-      if (!slidesContainer) return;
-      
-      if (instant) {
-        (slidesContainer as HTMLElement).style.transition = 'none';
-      } else {
-        (slidesContainer as HTMLElement).style.transition = 'transform 0.5s ease-in-out';
-      }
 
-      (slidesContainer as HTMLElement).style.transform = `translateX(-${currentSlide * 100 / slideCount}%)`;
-      
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
-    }
 
-    function nextSlide() {
-      if (isTransitioning) return;
-      isTransitioning = true;
 
-      currentSlide++;
-      updateCarousel();
 
-      // If we've reached the end
-      if (currentSlide >= slideCount) {
-        // Wait for the transition to complete
-        setTimeout(() => {
-          // Reset to first slide without transition
-          currentSlide = 0;
-          updateCarousel(true);
-          isTransitioning = false;
-        }, 500); // Match this with your transition duration
-      } else {
-        setTimeout(() => {
-          isTransitioning = false;
-        }, 500);
-      }
-    }
 
-    // Add click handlers to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        if (isTransitioning) return;
-        currentSlide = index;
-        updateCarousel();
-      });
-    });
 
-    // Set first dot as active
-    dots[0].classList.add('active');
 
-    // Auto-advance slides every 5 seconds
-    setInterval(nextSlide, 5000);
 
-    // Handle transition end
-    slidesContainer?.addEventListener('transitionend', () => {
-      isTransitioning = false;
-    });
-  }
+
+
+
+
+
+
+
+
+    
+   
+  ];
 </script>
