@@ -1,128 +1,258 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Product details data
+const products = [
+  {
+    id: 'eureka',
+    name: 'Eureka Series',
+    image: '/src/assets/thermal/eureka-series.png',
+    description: 'Advanced thermal imaging camera with high sensitivity and accuracy.',
+    features: [
+      'High thermal sensitivity',
+      'Advanced fire detection',
+      'Long-range surveillance',
+      'Weather-resistant design'
+    ],
+    specifications: {
+      resolution: '640 × 512',
+      focalLength: '75mm',
+      frameRate: '50Hz',
+      detection: 'Up to 2km'
+    }
+  },
+  // Add data for other series...
+];
 ---
 
 <Layout title="Thermal Cameras">
-    <div class="header-banner">
-        <img 
-            src="/src/assets/Wireless/heroimg0.png" 
-            alt="Products Banner - Security and Surveillance Solutions" 
-            class="w-full mt-10"
-        />
-      
+   <!-- Hero Section -->
+   <section class="relative h-[60vh] mb-24">
+    <div class="absolute inset-0">
+      <img 
+        src="/src/assets/transmission/heroimg.png" 
+        alt="Transmission Solutions Header" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-black/50"></div>
     </div>
+  </section>
 
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-6">Thermal Cameras</h1>
+
+<!-- Product Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {products.map(product => (
+      <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-500">
+        <div class="relative overflow-hidden h-64">
+          <img 
+            src={product.image} 
+            alt={`${product.name} Camera`} 
+            class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500 p-4"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
         
-        <div class="mb-8">
-            <div class="flex gap-4">
-                <button class="px-6 py-2 bg-white">Overview</button>
-                <button class="px-6 py-2 bg-gray-200">Solution</button>
-            </div>
+        <div class="p-6 bg-white">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+              {product.name}
+            </h3>
+            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-medium rounded-full">
+              Thermal
+            </span>
+          </div>
+          
+          <p class="text-gray-600 mb-6 line-clamp-2">{product.description}</p>
+          
+          <div class="space-y-3 mb-6">
+            {product.features.slice(0, 2).map(feature => (
+              <div class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-sm">{feature}</span>
+              </div>
+            ))}
+          </div>
+  
+          <button 
+            class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl hover:from-blue-700 hover:to-blue-800 transform hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl flex items-center justify-center gap-2 product-detail-btn"
+            data-product-id={product.id}
+          >
+            know More
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+          </button>
         </div>
+      </div>
+    ))}
+  </div>
+  
 
-        <div class="overview-content mb-12">
-            <p class="text-gray-700">
-                Thermal cameras, which do not require a light source, are excellent for providing enhanced coverage in diverse environments, such as those with harsh conditions or extreme darkness. In addition, thermal cameras have long range detection and temperature measurement capabilities, allowing them to be used in conjunction with visible light cameras to achieve all-weather monitoring and comprehensive surveillance. Dahua's thermal cameras covers both thermal and visual cameras to meet different user demands. Thermal cameras are widely used in applications such as perimeter protection, protection of key components (electrical facilities, gas pumps, etc.) and over-heating detection in critical infrastructure, forest fire prevention, and other scenarios.
-            </p>
+  <!-- Modal Component -->
+  <div id="productModal" class="fixed inset-0 bg-black/50 hidden z-50">
+    <div class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-2xl">
+      <div class="relative p-6 max-h-[90vh] overflow-y-auto">
+        <!-- Close Button -->
+        <button class="close-modal absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <!-- Modal Content -->
+        <div class="space-y-6">
+          <div class="flex items-start gap-6">
+            <div class="w-1/2">
+              <img id="modalImage" src="" alt="" class="w-full rounded-lg">
+            </div>
+            <div class="w-1/2">
+              <h2 id="modalTitle" class="text-3xl font-bold text-gray-900 mb-4"></h2>
+              <p id="modalDescription" class="text-gray-600 mb-6"></p>
+              
+              <div class="space-y-4">
+                <h3 class="text-xl font-semibold text-gray-900">Key Features</h3>
+                <ul id="modalFeatures" class="list-disc list-inside text-gray-600 space-y-2"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Technical Specifications</h3>
+            <div id="modalSpecs" class="grid grid-cols-2 gap-4"></div>
+          </div>
         </div>
-
-        <h2 class="text-2xl font-bold mb-6">Products</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Product Cards -->
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Eureka Series</h3>
-                <img src="/src/assets/thermal/eureka-series.png" alt="Eureka Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/eureka-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Wizmind Series</h3>
-                <img src="/src/assets/thermal/wizmind-series.png" alt="Wizmind Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/wizmind-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Explosion-proof Series</h3>
-                <img src="/src/assets/thermal/explosion-proof-series.png" alt="Explosion-proof Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/explosion-proof-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Anti-Corrosion Series</h3>
-                <img src="/src/assets/thermal/anti-corrosion-series.png" alt="Anti-Corrosion Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/anti-corrosion-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Lite Series</h3>
-                <img src="/src/assets/thermal/lite-series.png" alt="Lite Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/lite-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Pro Series</h3>
-                <img src="/src/assets/thermal/pro-series.png" alt="Pro Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/pro-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Ultra Series</h3>
-                <img src="/src/assets/thermal/ultra-series.png" alt="Ultra Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/ultra-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Thermography Series</h3>
-                <img src="/src/assets/thermal/thermography-series.png" alt="Thermography Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/thermography-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded">
-                <h3 class="text-xl font-semibold">Outdoor Series</h3>
-                <img src="/src/assets/thermal/outdoor-series.png" alt="Outdoor Series Camera" class="my-4 w-full h-48 object-contain">
-                <a href="/thermal-cameras/outdoor-series">
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Learn More</button>
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </Layout>
 
+<script>
+  // Product data for client-side use
+  const products: { [key: string]: { id: string, name: string, image: string, description: string, features: string[], specifications: { [key: string]: string } } } = {
+    eureka: {
+      id: 'eureka',
+      name: 'Eureka Series',
+      image: '/src/assets/thermal/eureka-series.png',
+      description: 'Advanced thermal imaging camera with high sensitivity and accuracy.',
+      features: [
+        'High thermal sensitivity',
+        'Advanced fire detection',
+        'Long-range surveillance',
+        'Weather-resistant design'
+      ],
+      specifications: {
+        resolution: '640 × 512',
+        focalLength: '75mm',
+        frameRate: '50Hz',
+        detection: 'Up to 2km'
+      }
+    }
+    // Add data for other series...
+  };
+
+  // Modal functionality
+  const modal = document.getElementById('productModal');
+  const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalFeatures = document.getElementById('modalFeatures');
+  const modalSpecs = document.getElementById('modalSpecs');
+
+  // Open modal
+  document.querySelectorAll('.product-detail-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = (button as HTMLButtonElement).dataset.productId;
+      if (!productId) return;
+      const product = products[productId];
+
+      modalImage.src = product.image;
+      modalImage.alt = product.name;
+      if (modalTitle) {
+        modalTitle.textContent = product.name;
+      }
+      if (modalDescription) {
+        modalDescription.textContent = product.description;
+      }
+      
+      // Populate features
+      if (modalFeatures) {
+        modalFeatures.innerHTML = product.features
+          .map(feature => `<li>${feature}</li>`)
+          .join('');
+      }
+
+      // Populate specifications
+      if (modalSpecs) {
+        modalSpecs.innerHTML = Object.entries(product.specifications)
+          .map(([key, value]) => `
+            <div class="bg-gray-50 p-4 rounded">
+              <span class="text-sm text-gray-500">${key}</span>
+              <p class="font-medium text-gray-900">${value}</p>
+            </div>
+          `)
+          .join('');
+      }
+
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close modal handlers
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+    document.body.style.overflow = 'auto';
+  };
+
+  const closeModalButton = document.querySelector('.close-modal');
+  if (closeModalButton) {
+    closeModalButton.addEventListener('click', closeModal);
+  }
+  
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (modal && e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>
+
 <style>
-    .header-banner {
-        position: relative;
-        height: 500px;
-        overflow: hidden;
-    }
+  /* ... existing styles ... */
 
-    .header-banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  /* Modal animations */
+  #productModal {
+    animation: fadeIn 0.3s ease-out;
+  }
 
-    .banner-content {
-        position: absolute;
-        top: 50%;
-        left: 50px;
-        transform: translateY(-50%);
+  #productModal > div {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translate(-50%, -45%);
     }
+    to { 
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
 </style>
