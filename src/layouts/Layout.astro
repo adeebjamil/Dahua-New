@@ -1,11 +1,89 @@
 ---
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { SEO } from "astro-seo";
+export interface Props {
+	title: string;
+	publishedTime?: string;
+	site?: string;
+  meta?:string;
+	sd?: object;
+	ogTitle?: string;
+	siteName?: string;
+	description?: string;
+  lang?:string;
+	image?: {
+		url: string;
+		alt: string;
+	};
+	disableIndexing?: boolean;
+}
+
+const {
+	title,
+  meta,
+  lang="en",
+	siteName,
+	publishedTime,
+	description,
+	site,
+	sd,
+	image,
+	disableIndexing = false,
+} = Astro.props;
+
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    {
+			sd && (
+				<script
+					is:inline
+					type="application/ld+json"
+					set:html={JSON.stringify(sd)}
+				/>
+       
+			)
+		}
+    <SEO
+    title={title ?? SITE.Title}
+    description={description ?? SITE.description}
+    noindex={disableIndexing}
+    nofollow={disableIndexing}
+    openGraph={{
+      basic: {
+        title: title ?? SITE.Title,
+        type: "website",
+       image: SITE.image.url
+      },
+      image: {
+        width: SITE.image.width,
+        height: SITE.image.height,
+        alt: image?.alt ?? SITE.openGraph.basic.image?.alt,
+      },
+      optional: {
+        siteName: siteName ?? SITE.openGraph.optional.siteName,
+        description: description ?? SITE.openGraph.optional.description,
+      },
+
+      article: {
+        publishedTime:
+          publishedTime ?? SITE.openGraph.article.publishedTime,
+      },
+    }}
+    twitter={{
+      card: "summary_large_image",
+      site: site ?? SITE.twitter.site,
+      creator: "Digiimpact",
+      title: title ?? SITE.twitter.title,
+      description:description ?? SITE.twitter.description,
+      image: image?.url ?? SITE.image?.url,
+      imageAlt: "Lovosis Technology L.L.C, U.A.E",
+     
+    }}
+  />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

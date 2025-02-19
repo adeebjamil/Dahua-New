@@ -1,8 +1,95 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const structuredData={
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://lovosis.com/#organization",
+        name: NAME,
+        url: SITE.baseURL,
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lovosis.com/#website",
+        url:SITE.baseURL ,
+        name: NAME,
+        publisher: { "@id": "https://lovosis.com/#organization" },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "ImageObject",
+        "@id": IMAGE,
+        url: IMAGE,
+        width: "200",
+        height: "200",
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://lovosis.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            item: { "@id": SITE.baseURL, name: "Home" },
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            item: { "@id": SITE.baseURL, name: "About" },
+          },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://lovosis.com/#webpage",
+        url: URL,
+        name: NAME,
+        datePublished: "2025-02-05T11:26:39+00:00",
+        dateModified: "2025-12-12T19:17:19+00:00",
+        about: { "@id": "https://lovosis.com/#organization" },
+        isPartOf: { "@id": "https://lovosis.com/#website" },
+        primaryImageOfPage: { "@id": IMAGE },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "Person",
+        "@id": URL,
+        name: "Lovosis",
+        url: URL,
+        image: {
+          "@type": "ImageObject",
+          "@id": URL,
+          url: URL,
+          caption: NAME,
+          inLanguage: "en-US",
+        },
+        sameAs: [URL],
+        worksFor: { "@id": "https://lovosis.com/#organization" },
+      },
+      {
+        "@type": "Article",
+        headline: title,
+        keywords: "",
+        datePublished: "2024-02-05T11:26:39+00:00",
+        dateModified: "2025-12-12T19:17:19+00:00",
+        author: { "@id": URL, name: "Johns Abraham" },
+        publisher: { "@id": "https://lovosis.com/#organization" },
+        description: "",
+        name: NAME,
+        "@id": "https://totaleng.in/#richSnippet",
+        isPartOf: { "@id": "https://lovosis.com/#webpage" },
+        image: { "@id": IMAGE },
+        inLanguage: "en-US",
+        mainEntityOfPage: { "@id": "https://lovosis.com=/#webpage" },
+      },
+    ],
+  };
 ---
 
-<Layout title="Company Profile">
+<Layout title="Company Profile" sd={structuredData}>
   <main>
     <!-- Hero Section -->
     <div class="relative h-screen bg-gradient-to-br from-yellow-400 via-blue-500 to-blue-800">
