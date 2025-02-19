@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Building & Construction Solutions">
+  <section class="min-h-screen flex items-center justify-center bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:shadow-2xl transition-all duration-300">
+          <!-- Hero Image -->
+          <div class="relative h-[400px]">
+            <img 
+              src="https://source.unsplash.com/1600x900/?building,construction" 
+              alt="Building & Construction" 
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          </div>
+
+          <!-- Content Section -->
+          <div class="p-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-6 text-center">
+              Guest Satisfaction, Guaranteed!
+            </h1>
+            
+            <div class="space-y-6 text-gray-600 mb-8">
+              <p class="leading-relaxed">
+                Building facilities face similar challenges in fulfilling security, comfort, and management efficiency demands.
+                In solving these challenges, Dahua provides:
+              </p>
+            </div>
+
+            <!-- Features List -->
+            <ul class="space-y-4 mb-8 text-gray-700">
+              {[
+                'Products and solutions to secure your facility',
+                'Intelligent analytics functionality',
+                'The latest cutting-edge technologies for improved management efficiency',
+                'Unified VMS for various products'
+              ].map(feature => (
+                <li class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-green-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA Button -->
+            <div class="text-center">
+              <a 
+                href="/Building-Construction/building-details" 
+                class="inline-block px-8 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Learn More
+                <svg class="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
+</Layout>

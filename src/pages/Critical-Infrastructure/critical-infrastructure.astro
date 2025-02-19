@@ -1,0 +1,117 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Critical Infrastructure">
+  <!-- Hero Section -->
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="/src/assets/infrastructure/hero-bg.jpg" 
+        alt="Critical Infrastructure" 
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-black/70"></div>
+    </div>
+    
+    <div class="relative container mx-auto px-4 py-20 text-center text-white">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+        Be Prepared for Every Potential Risk
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto animate-fade-in-delay">
+        Comprehensive security solutions for critical infrastructure protection
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-20 bg-gradient-to-b from-blue-900 to-blue-800">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center text-white">
+        <p class="text-lg leading-relaxed mb-8">
+          As a facility security manager, you need to be prepared for all risks including theft, natural disasters, terrorist attacks, and more, which could topple key infrastructures.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <div class="text-4xl mb-4">🎥</div>
+            <p>Various technologies such as 4K cameras and thermal cameras to secure your facilities</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <div class="text-4xl mb-4">🔐</div>
+            <p>End-to-end solutions including surveillance, access control, off-grid power supplies</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+            <div class="text-4xl mb-4">🔍</div>
+            <p>Thermal inspection to prevent and locate equipment failures</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Industry Cards -->
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Oil & Gas",
+            description: "As the number of vehicles on urban roads continues to increase, oil & gas has become an indispensable component of our living.",
+            image: "/src/assets/infrastructure/oil-gas.jpg",
+            link: "/Critical-Infrastructure/oil-and-gas"
+          },
+          {
+            title: "Electricity",
+            description: "Our lives are so dependent on electricity that even an hour-long power outage could cause serious problems in some industries and many aspects of our lives.",
+            image: "/src/assets/infrastructure/electricity.jpg",
+            link: "/Critical-Infrastructure/electricity"
+          },
+          {
+            title: "Telecommunication",
+            description: "Telecommunication plays a significant role in connecting the world altogether, pulling state economy and greatly improving citizens' life quality.",
+            image: "/src/assets/infrastructure/telecom.jpg",
+            link: "/Critical-Infrastructure/telecommunication"
+          }
+        ].map(industry => (
+          <div class="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img 
+              src={industry.image} 
+              alt={industry.title}
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div class="absolute bottom-0 p-6 text-white">
+                <h3 class="text-2xl font-bold mb-3">{industry.title}</h3>
+                <p class="text-gray-200 mb-4">{industry.description}</p>
+                <a 
+                  href={industry.link}
+                  class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .animate-fade-in-delay {
+      animation: fadeIn 1s ease-out 0.3s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+  </style>
+</Layout>

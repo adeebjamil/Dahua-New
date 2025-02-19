@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Retail & E-Commerce">
+  <section class="min-h-screen bg-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-5xl font-bold text-gray-900 mb-4">Retail</h1>
+          <h2 class="text-3xl font-semibold text-gray-700 mb-8">
+            Enabling Retail Transformation
+          </h2>
+        </div>
+
+        <!-- Main Content -->
+        <div class="space-y-8">
+          <p class="text-lg text-gray-600 leading-relaxed">
+            The retail sector is undergoing fundamental changes in the face of rapid digitalization.
+          </p>
+
+          <p class="text-lg text-gray-600 leading-relaxed">
+            The Dahua Smart Retail Solution provides security and loss prevention for retail shops while strengthening business operations with extensive video-aided business intelligence and analytics functionality.
+            The Dahua Retail Solution uses the latest technologies to provide:
+          </p>
+
+          <!-- Image Section -->
+          <div class="relative h-[400px] rounded-xl overflow-hidden shadow-xl my-12">
+            <img 
+              src="https://source.unsplash.com/1600x900/?retail,store" 
+              alt="Retail Solutions" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Features List -->
+          <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start space-x-3">
+              <svg class="w-6 h-6 text-blue-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-lg">
+                <strong>Security & Loss Prevention:</strong> Combat shoplifting, internal theft, cashier fraud, and ensure a secure & safe shopping environment.
+              </span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <svg class="w-6 h-6 text-blue-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-lg">
+                <strong>Business Intelligence:</strong> Reduce OPEX, increase store operating efficiency, and enhance profits by grasping the direct relationship between foot traffic data and transaction data.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      animation: fadeIn 1s ease-out;
+    }
+  </style>
+</Layout>
